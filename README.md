@@ -4,7 +4,7 @@ A basic Sudoku app developed using React Native and Expo.
 Currently only generates and displays a randomized sudoku board.
 
 TODO:
-- Add tile-hiding algorithm to create the actual puzzle
+~~ - Add tile-hiding algorithm to create the actual puzzle ~~
 - Add user input for guessing tile values
 - Add a 'notes' system that allows users to keep track of possible tile values
 - Add a victory screen for when the user correctly fills out the board

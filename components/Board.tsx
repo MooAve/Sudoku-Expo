@@ -11,7 +11,7 @@ function generateBoard() {
         Returns as a 2D Array matrix
     */
 
-    console.log("Starting Sudoku Generation...")
+    console.log("Starting Sudoku Generation...");
 
     let tiles : any[] = [
         [0, 0, 0, 0, 0, 0, 0, 0, 0],
@@ -123,12 +123,31 @@ function generateBoard() {
     return tiles
 }
 
+function pickClues(tiles : any[], numClues : number = 25) {
+    /*
+        Picks numClues (default: 25) tiles to be revealed at the start of the game
+        Tiles with a value greater than 10 are marked as being revealed
+    */
+    let i : number = 0;
+
+    while (i < numClues) {
+        const row : number = randInt(9);
+        const col : number = randInt(9);
+
+        if (tiles[row][col] > 10) {
+            continue;
+        }
+
+        tiles[row][col] += 10;
+        i++;
+    }
+
+    return tiles;
+}
+
 export default function Board() {
     let tiles : any[] = generateBoard();
-
-    tiles.forEach((el : number[]) => {
-        console.log(el.toString());
-    })
+    tiles = pickClues(tiles);
 
     return(
         <View>
