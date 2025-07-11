@@ -158,4 +158,4 @@ export default function Board() {
             })}
         </View>
     )
-}
+} 

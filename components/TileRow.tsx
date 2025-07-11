@@ -27,6 +27,6 @@ export default function TileRow({row, tiles} : Props) {
 
 const styles = StyleSheet.create({
     tileRow : {
-        flexDirection : 'row'
+        flexDirection : 'row',
     }
 })
