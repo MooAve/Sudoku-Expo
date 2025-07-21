@@ -1,6 +1,10 @@
 import { View } from "react-native";
 import TileRow from './TileRow';
 
+type Props = {
+    difficulty : string
+}
+
 function randInt(max : number) {
     return (Math.floor(Math.random() * max));
 }
@@ -145,9 +149,23 @@ function pickClues(tiles : any[], numClues : number = 25) {
     return tiles;
 }
 
-export default function Board() {
+export default function Board({difficulty} : Props) {
     let tiles : any[] = generateBoard();
-    tiles = pickClues(tiles);
+
+    let numClues : number;
+
+    switch(difficulty) {
+        case "easy" :
+            numClues = 30
+        case "medium" :
+            numClues = 25
+        case "hard" :
+            numClues = 20
+        default :
+            numClues = 25
+    }
+
+    tiles = pickClues(tiles, numClues);
 
     return(
         <View>
